@@ -2,17 +2,11 @@
 #include <vector>
 #include <iterator>
 #include <Windows.h>
+#include "..\Functions\Functions.h"
 
 using namespace std;
 
-int Factorial(int i)
-{
-	if ((i == 0) || (i == 1))
-		return 1;
-	else
-		return i * Factorial(i - 1);
-}
-
+// 6us -> 2783915460
 int main()
 {
 	vector<int> numbers {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
@@ -24,7 +18,7 @@ int main()
 	QueryPerformanceFrequency(&frequency);
 
 	double xThPermutation = 1000000;
-	double startingFactorial = Factorial(10);
+	double startingFactorial = (double)Functions::Factorial(10);
 	QueryPerformanceCounter(&t1);
 	for (int i = 10; i > 0; --i)
 	{
